@@ -3,7 +3,7 @@
   <h3>Welcome to the System</h3>
 
   <form onsubmit="{doLogin}">
-    <label for="email">User</label>
+    <label for="email">E-mail</label>
     <input type="text" name="email" id="email">
     <label for="password">Password</label>
     <input type="password" name="password" id="password">
