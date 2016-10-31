@@ -70,7 +70,7 @@ riot.tag2('test-route', '<p> Route is working </p> <a href onclick="{goToIndex}"
     }.bind(this)
 });
 
-riot.tag2('user-add', '<h3>User register form</h3> <form> <input type="text" name="name" id="name"> <label for="email">E-mail:</label> <input type="text" name="email" id="email"> <label for="password">Password:</label> <input type="password" name="password" id="password"> <button onclick="{userAdd}">Add</button> </form> <button onclick="{goToLogin}">Back to login</button> <br><br><br> <span class="label label-default" if="{message}">{message}</span>', '', '', function(opts) {
+riot.tag2('user-add', '<h3>User register form</h3> <form> <label for="name">Name:</label> <input type="text" name="name" id="name"> <label for="email">E-mail:</label> <input type="text" name="email" id="email"> <label for="password">Password:</label> <input type="password" name="password" id="password"> <button onclick="{userAdd}">Add</button> </form> <button onclick="{goToLogin}">Back to login</button> <br><br><br> <span class="label label-default" if="{message}">{message}</span>', '', '', function(opts) {
     var self = this;
     self.message = null;
 

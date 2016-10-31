@@ -3,6 +3,7 @@
   <h3>User register form</h3>
 
   <form>
+    <label for="name">Name:</label>
     <input type="text" name="name" id="name">
     <label for="email">E-mail:</label>
     <input type="text" name="email" id="email">
