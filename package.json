@@ -17,6 +17,7 @@
     "hapi-cookie": "^0.1.0",
     "hapi-riot": "^2.0.0",
     "inert": "^4.0.2",
+    "joi": "^9.2.0",
     "mongoose": "^4.6.5",
     "vision": "^4.1.0"
   }
