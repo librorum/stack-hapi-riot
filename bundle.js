@@ -20,7 +20,7 @@ riot.tag2('index', '<h3>Welcome Riot User</h3> <p> How are you ? <button-logout>
     }.bind(this)
 });
 
-riot.tag2('login', '<h3>Welcome to the System</h3> <form onsubmit="{doLogin}"> <label for="email">E-mail</label> <input type="text" name="email" id="email"> <label for="password">Password</label> <input type="password" name="password" id="password"> <button>Enter</button> </form> <button onclick="{goToUserRegister}">User register</button> <span class="label label-default" if="{messageError}">{messageError}</span>', '', '', function(opts) {
+riot.tag2('login', '<h3>Welcome to the System</h3> <form onsubmit="{doLogin}"> <label for="email">E-mail</label> <input type="text" name="email" id="email"> <label for="password">Password</label> <input type="password" name="password" id="password"> <button>Enter</button> </form> <button onclick="{goToUserRegister}">User register</button> <br><br><br> <span class="label label-default" if="{messageError}">{messageError}</span>', '', '', function(opts) {
     var self = this;
     self.messageError = null;
 
@@ -70,7 +70,7 @@ riot.tag2('test-route', '<p> Route is working </p> <a href onclick="{goToIndex}"
     }.bind(this)
 });
 
-riot.tag2('user-add', '<h3>User register form</h3> <form> <input type="text" name="name" id="name"> <label for="email">E-mail:</label> <input type="text" name="email" id="email"> <label for="password">Password:</label> <input type="password" name="password" id="password"> <button onclick="{userAdd}">Add</button> </form> <button onclick="{goToLogin}">Back to login</button> <br> <span class="label label-default" if="{message}">{message}</span>', '', '', function(opts) {
+riot.tag2('user-add', '<h3>User register form</h3> <form> <input type="text" name="name" id="name"> <label for="email">E-mail:</label> <input type="text" name="email" id="email"> <label for="password">Password:</label> <input type="password" name="password" id="password"> <button onclick="{userAdd}">Add</button> </form> <button onclick="{goToLogin}">Back to login</button> <br><br><br> <span class="label label-default" if="{message}">{message}</span>', '', '', function(opts) {
     var self = this;
     self.message = null;
 

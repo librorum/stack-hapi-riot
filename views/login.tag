@@ -12,6 +12,8 @@
 
   <button onclick="{goToUserRegister}">User register</button>
 
+  <br><br><br>
+
   <span class="label label-default" if="{messageError}">{messageError}</span>
 
   <script>

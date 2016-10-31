@@ -13,7 +13,7 @@
 
   <button onclick="{goToLogin}">Back to login</button>
 
-  <br>
+  <br><br><br>
 
   <span class="label label-default" if="{message}">{message}</span>
 
