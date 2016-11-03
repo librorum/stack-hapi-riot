@@ -76,6 +76,17 @@ server.register([
 
   server.route({
     method: 'GET',
+    path: '/manifest.json',
+    config: {
+      auth: false,
+      handler: function(request, reply) {
+        reply.file(Path.join(__dirname, 'manifest.json'));
+      }
+    }
+  });
+
+  server.route({
+    method: 'GET',
     path: '/bundle.js',
     config: {
       auth: false,

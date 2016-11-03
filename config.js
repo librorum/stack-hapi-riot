@@ -2,11 +2,11 @@ module.exports = {
 	mongo: {
 		username: '',
 		password: '',
-		url: 'localhost:27017',
+		url: '0.0.0.0:27017',
 		database: 'stack-hapi-riot'
 	},
 	server: {
-		host: 'localhost',
+		host: '0.0.0.0',
 		port: 3000
 	}
 };
