@@ -2,19 +2,26 @@
 
   <h3>Welcome to the System</h3>
 
+  <div class="alert alert-danger" role="alert" show="{messageError}">
+    <strong>Error: </strong> {messageError}
+  </div>
+
   <form onsubmit="{doLogin}">
-    <label for="email">E-mail</label>
-    <input type="text" name="email" id="email">
-    <label for="password">Password</label>
-    <input type="password" name="password" id="password">
-    <button>Enter</button>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6">
+          <label for="email">E-mail</label>
+          <input class="form-control" type="text" name="email" id="email">
+        </div>
+        <div class="col-md-6">
+          <label for="password">Password</label>
+          <input class="form-control" type="password" name="password" id="password">
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-primary">Enter</button>
+    <button class="btn btn-info" onclick="{goToUserRegister}">User register</button>
   </form>
-
-  <button onclick="{goToUserRegister}">User register</button>
-
-  <br><br><br>
-
-  <span class="label label-default" if="{messageError}">{messageError}</span>
 
   <script>
     var self = this;

@@ -2,25 +2,47 @@
 
   <h3>User register form</h3>
 
-  <form>
-    <label for="name">Name:</label>
-    <input type="text" name="name" id="name">
-    <label for="email">E-mail:</label>
-    <input type="text" name="email" id="email">
-    <label for="password">Password:</label>
-    <input type="password" name="password" id="password">
-    <button onclick="{userAdd}">Add</button>
+  <div class="alert alert-success" role="alert" show="{messageSuccess}">
+    <strong>Ok: </strong> {messageSuccess}
+  </div>
+
+  <div class="alert alert-danger" role="alert" show="{messageError}">
+    <strong>Error: </strong> {messageError}
+  </div>
+
+  <form onsubmit="{userAdd}">
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6">
+          <label for="name">Name:</label>
+          <input class="form-control" type="text" name="name" id="name">
+        </div>
+        <div class="col-md-6">
+          <label for="email">E-mail:</label>
+          <input class="form-control" type="text" name="email" id="email">
+        </div>
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="row">
+        <div class="col-md-6">
+          <label for="password">Password:</label>
+          <input class="form-control" type="password" name="password" id="password">
+        </div>
+        <div class="col-md-6">
+          <label for="password">Repeat Password:</label>
+          <input class="form-control" type="password" name="passwordRepeat" id="passwordRepeat">
+        </div>
+      </div>
+    </div>
+    <button class="btn btn-success">Add</button>
+    <button class="btn btn-info" onclick="{goToLogin}">Back to login</button>
   </form>
-
-  <button onclick="{goToLogin}">Back to login</button>
-
-  <br><br><br>
-
-  <span class="label label-default" if="{message}">{message}</span>
 
   <script>
     var self = this;
-    self.message = null;
+    self.messageSuccess = null;
+    self.messageError = null;
 
     userAdd(e) {
       $.ajax({
@@ -29,15 +51,19 @@
         data: {
           name: $('#name').val(),
           email: $('#email').val(),
-          password: $('#password').val()
+          password: $('#password').val(),
+          passwordRepeat: $('#passwordRepeat').val()
         },
         dataType: 'json',
         success: function (data, status, xhr) {
-          self.message = data.messageSuccess;
+          self.messageError = null;
+          self.messageSuccess = data.messageSuccess;
+          clearFormFields();
           self.update();
         },
         error: function (data, status, xhr) {
-          self.message = data.responseJSON.message;
+          self.messageSuccess = null;
+          self.messageError = data.responseJSON.message;
           self.update();
         }
       });
@@ -46,6 +72,13 @@
     goToLogin(e) {
       riot.mount('#container', 'login');
       riot.route('/login');
+    }
+
+    function clearFormFields() {
+      $('#name').val('');
+      $('#email').val('');
+      $('#password').val('');
+      $('#passwordRepeat').val('');
     }
   </script>
 

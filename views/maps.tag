@@ -1,6 +1,6 @@
 <maps>
 
-  <h3>Bem Vindo ao WS Google Maps</h3>
+  <h3>Welcome to WS Google Maps</h3>
 
   <form class="form-inline" novalidate>
     <div class="form-group">

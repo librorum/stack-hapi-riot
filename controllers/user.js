@@ -8,6 +8,10 @@ const Bcrypt = require('bcrypt');
 exports.register = {
   auth: false,
   handler: function(request, reply) {
+    if (request.payload.password !== request.payload.passwordRepeat) {
+      return reply(Boom.badData('Passwords not matches'));
+    }
+
     request.payload.password = Bcrypt.hashSync(request.payload.password, 10);
     request.payload.scope = 'Customer';
 
@@ -23,7 +27,8 @@ exports.register = {
     payload: {
       name: Joi.string().required(),
       email: Joi.string().email().required(),
-      password: Joi.string().required()
+      password: Joi.string().required(),
+      passwordRepeat: Joi.string().required()
     }
   },
 }
