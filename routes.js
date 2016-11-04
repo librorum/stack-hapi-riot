@@ -3,7 +3,6 @@
 const Pages = require('./pages');
 const Security = require('./controllers/security');
 const User = require('./controllers/user');
-const Maps = require('./controllers/maps');
 
 exports.endpoints = [
 	{method: 'GET',    	path: '/',													config: Pages.index},
@@ -13,6 +12,5 @@ exports.endpoints = [
 	{method: 'POST',    path: '/register',									config: User.register},
 	{method: 'POST',    path: '/login',											config: Security.login},
 	{method: 'POST',    path: '/logout',										config: Security.logout},
-	{method: 'GET',    	path: '/maps',											config: Pages.maps},
-	{method: 'POST',    path: '/save-maps',									config: Maps.saveMaps}
+	{method: 'GET',    	path: '/maps',											config: Pages.maps}
 ];
