@@ -49,10 +49,10 @@
         url: '/register',
         method: 'POST',
         data: {
-          name: $('#name').val(),
-          email: $('#email').val(),
-          password: $('#password').val(),
-          passwordRepeat: $('#passwordRepeat').val()
+          name: self.name.value,
+          email: self.email.value,
+          password: self.password.value,
+          passwordRepeat: self.passwordRepeat.value
         },
         dataType: 'json',
         success: function (data, status, xhr) {
@@ -75,10 +75,10 @@
     }
 
     function clearFormFields() {
-      $('#name').val('');
-      $('#email').val('');
-      $('#password').val('');
-      $('#passwordRepeat').val('');
+      self.name.value = '';
+      self.email.value = '';
+      self.password.value = '';
+      self.passwordRepeat.value = '';
     }
   </script>
 

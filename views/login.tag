@@ -32,13 +32,17 @@
         url: '/login',
         method: 'POST',
         data: {
-          email: $('#email').val(),
-          password: $('#password').val()
+          email: self.email.value,
+          password: self.password.value
         },
         dataType: 'json',
         success: function (data, status, xhr) {
           riot.mount('#container', 'index');
           riot.route('/');
+
+          // Mount Navbar and Footer
+          riot.mount(document.getElementById('header-tag'), 'header');
+          riot.mount(document.getElementById('footer-tag'), 'footer');
         },
         error: function (data, status, xhr) {
           self.messageError = data.responseJSON.message;

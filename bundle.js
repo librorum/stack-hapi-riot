@@ -4,11 +4,23 @@ riot.tag2('button-logout', '<button onclick="{doLogout}">Logout</button>', '', '
         url: '/logout',
         method: 'POST',
         success: function (data, status, xhr) {
+
+          var header = riot.mount(document.getElementById('header-tag'));
+          var footer = riot.mount(document.getElementById('footer-tag'));
+          header[0].unmount(true);
+          footer[0].unmount(true);
+
           riot.mount('#container', 'login');
           riot.route('/login');
         }
       });
     }.bind(this)
+});
+
+riot.tag2('footer', '<div class="text-center"> <span>@Copyright Rodolfo do Nascimento Azevedo</span> </div>', '', '', function(opts) {
+});
+
+riot.tag2('header', '<yeld></yeld> <nav class="navbar navbar-light bg-faded"> <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button> <div class="collapse navbar-toggleable-md" id="navbarResponsive"> <a class="navbar-brand" href="#">Navbar</a> <ul class="nav navbar-nav"> <li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span> </a> </li> <li class="nav-item"> <a class="nav-link" href="#">Link</a> </li> <li class="nav-item"> <a class="nav-link" href="#">Link</a> </li> <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="http://example.com" id="responsiveNavbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a> <div class="dropdown-menu" aria-labelledby="responsiveNavbarDropdown"> <a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a> </div> </li> </ul> <form class="form-inline float-lg-right"> <input class="form-control" type="text" placeholder="Search"> <button class="btn btn-outline-success" type="submit">Search</button> </form> </div> </nav>', '', '', function(opts) {
 });
 
 riot.tag2('index', '<h3>Welcome Riot User</h3> <p> How are you ? <button-logout></button-logout> <a href onclick="{goToTesteRoute}"> &nbsp;&nbsp; Go to \'route\' => test-route</a> </p>', '', '', function(opts) {
@@ -29,13 +41,16 @@ riot.tag2('login', '<h3>Welcome to the System</h3> <div class="alert alert-dange
         url: '/login',
         method: 'POST',
         data: {
-          email: $('#email').val(),
-          password: $('#password').val()
+          email: self.email.value,
+          password: self.password.value
         },
         dataType: 'json',
         success: function (data, status, xhr) {
           riot.mount('#container', 'index');
           riot.route('/');
+
+          riot.mount(document.getElementById('header-tag'), 'header');
+          riot.mount(document.getElementById('footer-tag'), 'footer');
         },
         error: function (data, status, xhr) {
           self.messageError = data.responseJSON.message;
@@ -50,14 +65,19 @@ riot.tag2('login', '<h3>Welcome to the System</h3> <div class="alert alert-dange
     }.bind(this)
 });
 
-riot.tag2('main', '<div id="container" class="container"> </div>', '', '', function(opts) {
+riot.tag2('main', '<div id="header-tag"></div> <div id="container" class="container"></div> <div id="footer-tag"></div>', '', '', function(opts) {
     var self = this;
 
     riot.route.base('/');
 
-    this.on('updated', function() {
+    self.on('updated', function() {
       riot.mount('#container', opts.tag);
       riot.route(opts.path);
+
+      if (opts.isAuthenticated) {
+        riot.mount('#header-tag', 'header');
+        riot.mount('#footer-tag', 'footer');
+      }
     });
 });
 
@@ -159,10 +179,10 @@ riot.tag2('user-add', '<h3>User register form</h3> <div class="alert alert-succe
         url: '/register',
         method: 'POST',
         data: {
-          name: $('#name').val(),
-          email: $('#email').val(),
-          password: $('#password').val(),
-          passwordRepeat: $('#passwordRepeat').val()
+          name: self.name.value,
+          email: self.email.value,
+          password: self.password.value,
+          passwordRepeat: self.passwordRepeat.value
         },
         dataType: 'json',
         success: function (data, status, xhr) {
@@ -185,9 +205,9 @@ riot.tag2('user-add', '<h3>User register form</h3> <div class="alert alert-succe
     }.bind(this)
 
     function clearFormFields() {
-      $('#name').val('');
-      $('#email').val('');
-      $('#password').val('');
-      $('#passwordRepeat').val('');
+      self.name.value = '';
+      self.email.value = '';
+      self.password.value = '';
+      self.passwordRepeat.value = '';
     }
 });
