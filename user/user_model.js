@@ -1,6 +1,6 @@
 'use strict';
 
-var Mongoose = require('../database').Mongoose;
+var Mongoose = require('../db').Mongoose;
 
 var userSchema = new Mongoose.Schema({
   name: {

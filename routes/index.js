@@ -1,15 +1,15 @@
 'use strict';
 
 // Declared Views
-const UserView 			 	 	 = require('./user/user_view');
-const IndexView 		 		 = require('./index/index_view');
-const LoginView 		 		 = require('./login/login_view');
-const MapsView  		 		 = require('./maps/maps_view');
-const TestView		 			 = require('./test_route/test_route_view');
+const UserView 			 	 	 = require('../user/user_view');
+const IndexView 		 		 = require('../index/index_view');
+const LoginView 		 		 = require('../login/login_view');
+const MapsView  		 		 = require('../maps/maps_view');
+const TestView		 			 = require('../test_route/test_route_view');
 
 // Declared Controllers
-const SecurityController = require('./security/security_controller');
-const UserController  	 = require('./user/user_controller');
+const SecurityController = require('../security/security_controller');
+const UserController  	 = require('../user/user_controller');
 
 exports.endpoints = [
 

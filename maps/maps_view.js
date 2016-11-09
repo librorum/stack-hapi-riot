@@ -1,6 +1,6 @@
 'use strict';
 
-exports.maps = {
+exports.index = {
   auth: {
     mode: 'try'
   },

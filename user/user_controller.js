@@ -2,10 +2,10 @@
 
 const Boom = require('boom');
 const Joi = require('joi');
-const User = require('../models/user');
+const User = require('./user_model');
 const Bcrypt = require('bcrypt');
 
-exports.register = {
+exports.add = {
   auth: false,
   handler: function(request, reply) {
     if (request.payload.password !== request.payload.passwordRepeat) {
