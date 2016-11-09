@@ -1,7 +1,7 @@
 'use strict';
 
 var Mongoose = require('mongoose');
-var Config = require('./config');
+var Config = require('../config');
 
 Mongoose.Promise = global.Promise;
 Mongoose.connect('mongodb://' + Config.mongo.url + '/' + Config.mongo.database);
