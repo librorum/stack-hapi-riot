@@ -2,7 +2,7 @@
 
 const Boom = require('boom');
 const Joi = require('joi');
-const User = require('../user/user_model');
+const User = require('../user/model');
 const Bcrypt = require('bcrypt');
 
 exports.login = {

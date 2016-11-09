@@ -52,7 +52,7 @@
     }
 
     goToUserRegister(e) {
-      riot.mount('#container', 'user-add');
+      riot.mount('#container', 'user_add');
       riot.route('/user/add');
     }
   </script>

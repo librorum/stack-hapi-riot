@@ -1,4 +1,4 @@
-<button-logout>
+<button_logout>
   <button onclick="{doLogout}">Logout</button>
   <script>
     doLogout(e) {
@@ -19,4 +19,4 @@
       });
     }
   </script>
-</button-logout>
+</button_logout>

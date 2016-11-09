@@ -1,6 +1,6 @@
 'use strict';
 
-exports.add = {
+exports.index = {
   auth: {
     mode: 'try'
   },
@@ -11,7 +11,7 @@ exports.add = {
       opts.tag = 'index';
       opts.path = '/';
     } else {
-      opts.tag = 'user-add';
+      opts.tag = 'user_add';
       opts.path = '/user/add';
     }
 

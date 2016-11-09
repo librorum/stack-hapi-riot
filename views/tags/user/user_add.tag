@@ -1,4 +1,4 @@
-<user-add>
+<user_add>
 
   <h3>User register form</h3>
 
@@ -82,4 +82,4 @@
     }
   </script>
 
-</user-add>
+</user_add>

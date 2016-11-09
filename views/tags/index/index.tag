@@ -4,7 +4,7 @@
 
   <p>
     How are you ?
-    <button-logout></button-logout>
+    <button_logout></button_logout>
     <a href onclick="{goToTesteRoute}"> &nbsp;&nbsp; Go to 'route' => test-route</a>
   </p>
 
@@ -12,7 +12,7 @@
     var self = this;
 
     goToTesteRoute(e) {
-      riot.mount('#container', 'test-route');
+      riot.mount('#container', 'test_route');
       riot.route('/test-route');
     }
   </script>

@@ -1,4 +1,4 @@
-riot.tag2('button-logout', '<button onclick="{doLogout}">Logout</button>', '', '', function(opts) {
+riot.tag2('button_logout', '<button onclick="{doLogout}">Logout</button>', '', '', function(opts) {
     this.doLogout = function(e) {
       $.ajax({
         url: '/logout',
@@ -23,11 +23,11 @@ riot.tag2('footer', '<div class="text-center"> <span>@Copyright Rodolfo do Nasci
 riot.tag2('header', '<yeld></yeld> <nav class="navbar navbar-light bg-faded"> <button class="navbar-toggler hidden-lg-up" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation"></button> <div class="collapse navbar-toggleable-md" id="navbarResponsive"> <a class="navbar-brand" href="#">Navbar</a> <ul class="nav navbar-nav"> <li class="nav-item active"> <a class="nav-link" href="#">Home <span class="sr-only">(current)</span> </a> </li> <li class="nav-item"> <a class="nav-link" href="#">Link</a> </li> <li class="nav-item"> <a class="nav-link" href="#">Link</a> </li> <li class="nav-item dropdown"> <a class="nav-link dropdown-toggle" href="http://example.com" id="responsiveNavbarDropdown" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Dropdown</a> <div class="dropdown-menu" aria-labelledby="responsiveNavbarDropdown"> <a class="dropdown-item" href="#">Action</a> <a class="dropdown-item" href="#">Another action</a> <a class="dropdown-item" href="#">Something else here</a> </div> </li> </ul> <form class="form-inline float-lg-right"> <input class="form-control" type="text" placeholder="Search"> <button class="btn btn-outline-success" type="submit">Search</button> </form> </div> </nav>', '', '', function(opts) {
 });
 
-riot.tag2('index', '<h3>Welcome Riot User</h3> <p> How are you ? <button-logout></button-logout> <a href onclick="{goToTesteRoute}"> &nbsp;&nbsp; Go to \'route\' => test-route</a> </p>', '', '', function(opts) {
+riot.tag2('index', '<h3>Welcome Riot User</h3> <p> How are you ? <button_logout></button_logout> <a href onclick="{goToTesteRoute}"> &nbsp;&nbsp; Go to \'route\' => test-route</a> </p>', '', '', function(opts) {
     var self = this;
 
     this.goToTesteRoute = function(e) {
-      riot.mount('#container', 'test-route');
+      riot.mount('#container', 'test_route');
       riot.route('/test-route');
     }.bind(this)
 });
@@ -60,7 +60,7 @@ riot.tag2('login', '<h3>Welcome to the System</h3> <div class="alert alert-dange
     }.bind(this)
 
     this.goToUserRegister = function(e) {
-      riot.mount('#container', 'user-add');
+      riot.mount('#container', 'user_add');
       riot.route('/user/add');
     }.bind(this)
 });
@@ -160,7 +160,7 @@ riot.tag2('maps', '<h3>Welcome to WS Google Maps</h3> <form class="form-inline" 
     });
 });
 
-riot.tag2('test-route', '<p> Route is working </p> <a href onclick="{goToIndex}">Back to Index</a>', '', '', function(opts) {
+riot.tag2('test_route', '<p> Route is working </p> <a href onclick="{goToIndex}">Back to Index</a>', '', '', function(opts) {
     var self = this;
 
     this.goToIndex = function(e) {
@@ -169,7 +169,7 @@ riot.tag2('test-route', '<p> Route is working </p> <a href onclick="{goToIndex}"
     }.bind(this)
 });
 
-riot.tag2('user-add', '<h3>User register form</h3> <div class="alert alert-success" role="alert" show="{messageSuccess}"> <strong>Ok: </strong> {messageSuccess} </div> <div class="alert alert-danger" role="alert" show="{messageError}"> <strong>Error: </strong> {messageError} </div> <form onsubmit="{userAdd}"> <div class="form-group"> <div class="row"> <div class="col-md-6"> <label for="name">Name:</label> <input class="form-control" type="text" name="name" id="name"> </div> <div class="col-md-6"> <label for="email">E-mail:</label> <input class="form-control" type="text" name="email" id="email"> </div> </div> </div> <div class="form-group"> <div class="row"> <div class="col-md-6"> <label for="password">Password:</label> <input class="form-control" type="password" name="password" id="password"> </div> <div class="col-md-6"> <label for="password">Repeat Password:</label> <input class="form-control" type="password" name="passwordRepeat" id="passwordRepeat"> </div> </div> </div> <button class="btn btn-success">Add</button> <button class="btn btn-info" onclick="{goToLogin}">Back to login</button> </form>', '', '', function(opts) {
+riot.tag2('user_add', '<h3>User register form</h3> <div class="alert alert-success" role="alert" show="{messageSuccess}"> <strong>Ok: </strong> {messageSuccess} </div> <div class="alert alert-danger" role="alert" show="{messageError}"> <strong>Error: </strong> {messageError} </div> <form onsubmit="{userAdd}"> <div class="form-group"> <div class="row"> <div class="col-md-6"> <label for="name">Name:</label> <input class="form-control" type="text" name="name" id="name"> </div> <div class="col-md-6"> <label for="email">E-mail:</label> <input class="form-control" type="text" name="email" id="email"> </div> </div> </div> <div class="form-group"> <div class="row"> <div class="col-md-6"> <label for="password">Password:</label> <input class="form-control" type="password" name="password" id="password"> </div> <div class="col-md-6"> <label for="password">Repeat Password:</label> <input class="form-control" type="password" name="passwordRepeat" id="passwordRepeat"> </div> </div> </div> <button class="btn btn-success">Add</button> <button class="btn btn-info" onclick="{goToLogin}">Back to login</button> </form>', '', '', function(opts) {
     var self = this;
     self.messageSuccess = null;
     self.messageError = null;

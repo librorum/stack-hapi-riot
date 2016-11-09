@@ -1,4 +1,4 @@
-<test-route>
+<test_route>
 
   <p>
     Route is working
@@ -15,4 +15,4 @@
     }
   </script>
 
-</test-route>
+</test_route>

@@ -4,7 +4,7 @@ exports.index = {
   handler: function(request, reply) {
     var opts = {
       isAuthenticated: request.auth.isAuthenticated,
-      tag: 'test-route',
+      tag: 'test_route',
       path: '/test-route'
     };
 
